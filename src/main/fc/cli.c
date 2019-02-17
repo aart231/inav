@@ -56,7 +56,7 @@ extern uint8_t __config_end;
 #include "drivers/io.h"
 #include "drivers/io_impl.h"
 #include "drivers/logging.h"
-#include "drivers/max7456_symbols.h"
+#include "drivers/osd_symbols.h"
 #include "drivers/rx_pwm.h"
 #include "drivers/sdcard.h"
 #include "drivers/sensor.h"
@@ -119,7 +119,8 @@ extern uint8_t __config_end;
 #define PLAY_SOUND
 #endif
 
-#ifndef USE_MAX7456
+#if !defined(USE_OSD)
+#undef TEMP_SENSOR_SYM_COUNT
 #define TEMP_SENSOR_SYM_COUNT 0
 #endif
 
